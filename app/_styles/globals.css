@@ -8,8 +8,8 @@
     width: 60px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 8px solid theme('colors.primary.900');
-    border-right-color: theme('colors.primary.200');
+    border: 8px solid theme("colors.primary.900");
+    border-right-color: theme("colors.primary.200");
     animation: rotate 1s infinite linear;
   }
 
@@ -18,7 +18,7 @@
     width: 20px;
     aspect-ratio: 1;
     border-radius: 50%;
-    border: 2px solid theme('colors.primary.200');
+    border: 2px solid theme("colors.primary.200");
     border-right-color: transparent;
     animation: rotate 1s infinite linear;
   }
@@ -30,9 +30,50 @@
   }
 }
 
-.rdp {
+.rdp-root {
   --rdp-cell-size: 32px !important;
-  --rdp-accent-color: theme('colors.accent.500') !important;
-  --rdp-background-color: theme('colors.accent.600') !important;
+  --rdp-accent-color: theme("colors.accent.500") !important;
+  --rdp-background-color: theme("colors.accent.600") !important;
+  --rdp-day-height: 20px !important;
+  --rdp-day-width: 20px !important;
+  --rdp-range_start-background: theme("colors.accent.500") !important;
+  --rdp-range_end-background: theme("colors.accent.500") !important;
+  --rdp-range_middle-background-color: theme("colors.accent.500") !important;
+  --rdp-day_button-height: 36px !important;
+  --rdp-day_button-width: 36px !important;
   margin: 0 !important;
+}
+
+.rdp-day {
+  width: 36px !important;
+  height: 36px !important;
+  max-width: 36px;
+  max-height: 36px;
+}
+
+.rdp-nav {
+  display: none !important;
+}
+
+.rdp-month_caption {
+  justify-content: center;
+}
+
+.rdp-selected {
+  border-color: theme("colors.accent.500") !important;
+}
+
+.rdp-range_start .rdp-day_button {
+  position: relative;
+  z-index: 999;
+}
+
+.rdp-range_start {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.rdp-range_end {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
 }
