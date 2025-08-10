@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { auth } from "@/app/_lib/auth";
 
 const navLinks = [
   {
@@ -12,14 +10,10 @@ const navLinks = [
     name: "About",
     href: "/about",
   },
-  {
-    name: "Guest area",
-    href: "/account",
-  },
 ];
 
-export default function Navigation() {
-  const pathname = usePathname();
+export default async function Navigation() {
+  const session = await auth();
 
   return (
     <nav className="z-10 text-xl">
@@ -28,14 +22,35 @@ export default function Navigation() {
           <li key={link.href}>
             <Link
               href={link.href}
-              className={`hover:text-accent-400 transition-colors ${
-                pathname.includes(link.href) && "text-accent-400"
-              }`}
+              className={`hover:text-accent-400 transition-colors`}
             >
               {link.name}
             </Link>
           </li>
         ))}
+        <li>
+          {session?.user?.image ? (
+            <Link
+              href="/account"
+              className={`flex items-center gap-4 hover:text-accent-400 transition-colors`}
+            >
+              <img
+                className="h-8 rounded-full"
+                alt={session.user.name}
+                src={session.user.image}
+                referrerPolicy="no-referrer"
+              />
+              <span>Guest Area</span>
+            </Link>
+          ) : (
+            <Link
+              href="/account"
+              className={`hover:text-accent-400 transition-colors`}
+            >
+              Guest Area
+            </Link>
+          )}
+        </li>
       </ul>
     </nav>
   );
