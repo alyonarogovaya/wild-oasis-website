@@ -131,10 +131,10 @@ export async function getSettings() {
 export async function getCountries() {
   try {
     const res = await fetch(
-      "https://restcountries.com/v2/all?fields=name,flag"
+      "https://countriesnow.space/api/v0.1/countries/flag/images"
     );
     const countries = await res.json();
-    return countries;
+    return countries.data;
   } catch {
     throw new Error("Could not fetch countries");
   }
@@ -166,24 +166,6 @@ export async function createBooking(newBooking) {
     throw new Error("Booking could not be created");
   }
 
-  return data;
-}
-
-/////////////
-// UPDATE
-
-export async function updateGuest(id, updatedFields) {
-  const { data, error } = await supabase
-    .from("guests")
-    .update(updatedFields)
-    .eq("id", id)
-    .select()
-    .single();
-
-  if (error) {
-    console.error(error);
-    throw new Error("Guest could not be updated");
-  }
   return data;
 }
 
