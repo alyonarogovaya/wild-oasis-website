@@ -1,12 +1,11 @@
 import SubmitButton from "@/app/_components/SubmitButton";
-import { updateReservation } from "@/app/_lib/actions";
+import { updateBooking } from "@/app/_lib/actions";
 import { getBooking, getCabin } from "@/app/_lib/data-service";
 
 export default async function Page({ params }) {
   const reservationId = params.reservationId;
   const { cabinId, numGuests, observations } = await getBooking(reservationId);
   const { maxCapacity } = await getCabin(cabinId);
-  // const { pending } = useFormState();
 
   return (
     <div>
@@ -15,7 +14,7 @@ export default async function Page({ params }) {
       </h2>
 
       <form
-        action={updateReservation}
+        action={updateBooking}
         className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
       >
         <input type="hidden" name="id" value={reservationId} />
@@ -51,7 +50,9 @@ export default async function Page({ params }) {
         </div>
 
         <div className="flex justify-end items-center gap-6">
-          <SubmitButton title="Update reservation" />
+          <SubmitButton pendingLabel="Updating...">
+            Update reservation
+          </SubmitButton>
         </div>
       </form>
     </div>
