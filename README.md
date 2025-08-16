@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🌲 Wild Oasis – Visitor App
 
-## Getting Started
+A Next.js web application for booking cozy hotel cabins in the woods. This app
+allows visitors to browse available cabins, make reservations, and manage their
+bookings – all without a payment system.
 
-First, run the development server:
+It is connected to a separate CMS app for hotel staff, where cabins can be
+created and edited: 👉 Wild Oasis CMS (Admin App)
 
-```bash
-npm run dev
+✨ Features
+
+🔑 Authentication with NextAuth – visitors can sign up / log in securely
+
+🏕 Browse cabins – view details and availability
+
+📅 Make reservations – book your preferred cabin
+
+🗂 Manage reservations – update or cancel your bookings
+
+🔗 Connected to CMS – content is managed via the staff-facing Wild Oasis app
+
+🛠️ Tech Stack
+
+Next.js – React framework
+
+NextAuth.js – authentication
+
+[React Query / SWR] (if used) – data fetching and caching
+
+Tailwind CSS – styling
+
+[PostgreSQL / Prisma / Supabase] (depending on your setup) – database & ORM
+
+🚀 Getting Started
+
+1. Clone the repo git clone
+   https://github.com/your-username/wild-oasis-visitor.git cd wild-oasis-visitor
+
+2. Install dependencies npm install
+
 # or
+
+yarn install
+
+3. Configure environment variables
+
+Create a .env.local file and add the required variables:
+
+# NextAuth
+
+NEXTAUTH_URL=http://localhost:3000 NEXTAUTH_SECRET=your-secret-key
+
+# Database connection
+
+DATABASE_URL=your-database-url
+
+(Adjust based on your actual setup, e.g., Supabase/Prisma/PlanetScale/etc.)
+
+4. Run the development server npm run dev
+
+# or
+
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit http://localhost:3000 🎉
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+📦 Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+You can deploy this app easily on Vercel (recommended for Next.js).
 
-## Learn More
+Push your code to GitHub
 
-To learn more about Next.js, take a look at the following resources:
+Import your repo in Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Add environment variables in Vercel Dashboard
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Deploy 🚀
 
-## Deploy on Vercel
+🔗 Related Projects
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Wild Oasis CMS (Admin App) – for hotel staff to manage cabins
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+📜 License
+
+MIT License – feel free to use and modify.
